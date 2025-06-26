@@ -1,3 +1,10 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 html{
     height: 100%;
     width: 100%;
@@ -8,7 +15,7 @@ html{
 }
 body{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     background-color: white;
     width: 30%;
     height: 90%
@@ -43,6 +50,7 @@ body{
     color: white;
     opacity: 1;
     align-self: flex-start;
+    font-size: 2.5rem;
 }
 
 .overlay > div{
@@ -50,10 +58,69 @@ body{
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    margin: 0 1.25rem
+    margin: 0 1.25rem;
+    font-family: Inter;
 }
 
 .overlay > div > a{
     color: white;
     cursor: pointer;
 }
+
+.search-bar{
+    height: 2.3125rem;
+    width: 70%;
+    border: none;
+}
+
+.search-bar::placeholder{
+    font-size: 15px
+}
+
+.search-bar:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.search-bar-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter;
+
+}
+
+.search-bar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    border: 1px solid grey;
+    border-radius: 6px;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.icon{
+    padding: 10px;
+    border-right: none;
+    padding-left: 0;
+    margin-right: 10px;
+    box-sizing: content-box;
+    margin-left: 10px
+}
+
+.button-container{
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    border-left: 1px solid grey
+}
+
+.button{
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+
