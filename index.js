@@ -1,4 +1,6 @@
 
+//Taking user input from the search bar and putting it into url format
+
 let searchBarWord = ""
 let alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 document.getElementById("search-bar").addEventListener("keydown", (event)=>{
@@ -20,6 +22,12 @@ document.getElementById("search-bar").addEventListener("keydown", (event)=>{
 document.getElementById("search-bar").addEventListener("input", (event)=>{
     console.log(event)
 })
+
+
+
+//--------------------------------------------------------------------------------//
+
+//Search and get information
 
 let count = 0
 document.getElementById("search-button").addEventListener("click", ()=>{
