@@ -17,7 +17,7 @@ body{
     display: flex;
     flex-direction: column;
     background-color: white;
-    width: 30%;
+    width: 500px;
     height: 90%;
     position: relative;
     background-color: black;
@@ -138,5 +138,45 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1
+    flex-direction: column;
+    flex: 1;
+    width: 500px;
+    height: 100%;
+    max-width: 500px;
+    overflow: auto;
+}
+
+.testh1{
+    color: white;
+}
+
+
+#template{
+    width: 100%
+}
+
+
+.hello{
+    grid-column: span 2;
+}
+
+#template-container{
+    width: 100%;
+}
+
+#template-container > div{
+    border: 1px solid white;
+    color: white;
+}
+
+
+#poster{
+    height: 100%;
+    width: 30%
+}
+
+.poster{
+    width: 30%;
+    height: 20%;
+    margin-left: 20px;
 }
