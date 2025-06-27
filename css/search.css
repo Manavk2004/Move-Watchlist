@@ -20,7 +20,9 @@ body{
     width: 30%;
     height: 90%;
     position: relative;
-    background-color: black
+    background-color: black;
+    border: 2px solid white;
+    box-shadow: 0px 10px 50px rgba(255, 255, 255, 0.7)
 }
 
 
@@ -132,3 +134,9 @@ body{
     cursor: pointer;
 }
 
+#body-of-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1
+}
