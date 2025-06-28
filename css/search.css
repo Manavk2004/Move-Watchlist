@@ -75,7 +75,8 @@ body{
     height: 2.3125rem;
     width: 70%;
     border: none;
-    background-color: rgb(61, 59, 59)
+    background-color: rgb(61, 59, 59);
+    color: white;
 }
 
 .search-bar::placeholder{
@@ -187,4 +188,21 @@ body{
 
 #movie-info-container{
     margin-bottom: 30px;
+    display: flex;
+}
+
+#movie-info-container > h1{
+    margin-left: 1.25rem;
+    font-size: 1.125rem;
+    font-family: Inter;
+    margin-right: 0.1875rem;
+}
+
+#movie-info-container > svg{
+    margin-left: 0.625rem;
+    margin-top: 1.25rem;
+}
+
+#the-rating{
+    margin-left: 0.3125rem
 }

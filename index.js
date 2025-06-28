@@ -4,7 +4,6 @@
 let searchBarWord = ""
 let alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 document.getElementById("search-bar").addEventListener("keydown", (event)=>{
-    console.log(event)
     if (event.key === "Backspace"){
         searchBarWord = searchBarWord.slice(0, -1)
 
@@ -19,11 +18,9 @@ document.getElementById("search-bar").addEventListener("keydown", (event)=>{
     }
 })
 
-document.getElementById("search-bar").addEventListener("input", (event)=>{
-    console.log(event)
-})
-
-
+// document.getElementById("search-bar").addEventListener("input", (event)=>{
+//     console.log(event)
+// })
 
 //--------------------------------------------------------------------------------//
 
@@ -36,7 +33,7 @@ document.getElementById("search-button").addEventListener("click", ()=>{
     fetch(`http://www.omdbapi.com/?s=${searchableWord}&apikey=4c61f6fa`)
         .then(response => response.json())
         .then(data => {
-
+            console.log(data)
             if(count === 0){
                 const element = document.getElementById("empty-logo-container")
                 element.remove()
@@ -47,11 +44,34 @@ document.getElementById("search-button").addEventListener("click", ()=>{
             document.getElementById("template-container").style.height = "80%"
             let arrayofMovies = data.Search
             for (const movie of arrayofMovies){
+                console.log(movie)
                 const template = document.getElementById("template")
                 const clone = template.content.cloneNode(true)
+
                 const img = clone.querySelector("img")
                 img.src = movie.Poster
-                document.getElementById("template-container").appendChild(clone)
+
+
+                const title = clone.querySelector("h1")
+                title.textContent = movie.Title
+
+                // Movie length, rating, desc, etc...
+                fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&plot=full&apikey=4c61f6fa`)
+                    .then(response => response.json())
+                    .then(data => {
+                        //Movie rating
+                        let rating = clone.querySelector("#the-rating")
+                        rating.textContent = data.Ratings[0].Value
+
+                        document.getElementById("template-container").appendChild(clone)
+                    })
+
+
+
+            
+
+
+
             }
         })
     searchBarWord = ""
