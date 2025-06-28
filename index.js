@@ -56,7 +56,7 @@ document.getElementById("search-button").addEventListener("click", ()=>{
                 title.textContent = movie.Title
 
                 // Movie length, rating, desc, etc...
-                fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&plot=full&apikey=4c61f6fa`)
+                fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&plot=short&apikey=4c61f6fa`)
                     .then(response => response.json())
                     .then(data => {
                         //Movie rating
@@ -69,7 +69,10 @@ document.getElementById("search-button").addEventListener("click", ()=>{
 
                         let genre = clone.querySelector("#genre")
                         genre.textContent = data.Genre
-                        
+
+                        let desc = clone.querySelector("#movie-desc")
+                        desc.textContent = data.Plot
+
                         document.getElementById("template-container").appendChild(clone)
                     })
 
