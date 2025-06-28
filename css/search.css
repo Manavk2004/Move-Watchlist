@@ -251,6 +251,13 @@ body{
 }
 
 
+.movie-specifics > button{
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+
 #inner-container{
     display: flex;
 }
@@ -269,3 +276,4 @@ body{
     font-weight: 600;
     margin-right: 10px
 }
+
