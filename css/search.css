@@ -106,7 +106,6 @@ body{
     justify-content: center;
     align-items: stretch;
     width: 80%;
-    border: 1px solid grey;
     border-radius: 6px;
     height: 100%;
     margin: 0;
@@ -189,13 +188,15 @@ body{
 #movie-info-container{
     margin-bottom: 30px;
     display: flex;
+    max-height: 250px;
+    font-family: Inter;
 }
 
-#movie-info-container > h1{
-    margin-left: 1.25rem;
+.top-header > h1{
+    margin-left: 0.5rem;
     font-size: 1.125rem;
     font-family: Inter;
-    margin-right: 0.1875rem;
+    margin-right: 0.5rem;
 }
 
 #movie-info-container > svg{
@@ -205,4 +206,27 @@ body{
 
 #the-rating{
     margin-left: 0.3125rem
+}
+
+
+#movie-specifics{
+    display: block
+}
+
+#info-container{
+    display: block;
+}
+
+.top-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#movie-specifics{
+    margin-left: 0.5rem
+}
+
+#movie-specifics > p{
+    font-size: 12px;
 }

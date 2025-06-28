@@ -63,6 +63,11 @@ document.getElementById("search-button").addEventListener("click", ()=>{
                         let rating = clone.querySelector("#the-rating")
                         rating.textContent = data.Ratings[0].Value
 
+                        //Movie Length
+                        let length = clone.querySelector("#length")
+                        length.textContent = data.Runtime
+
+
                         document.getElementById("template-container").appendChild(clone)
                     })
 
