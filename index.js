@@ -45,43 +45,39 @@ document.getElementById("search-button").addEventListener("click", ()=>{
             let arrayofMovies = data.Search
             for (const movie of arrayofMovies){
                 console.log(movie)
-                const template = document.getElementById("template")
-                const clone = template.content.cloneNode(true)
+                if (movie.Poster !== "N/A"){
+                    const template = document.getElementById("template")
+                    const clone = template.content.cloneNode(true)
 
-                const img = clone.querySelector("img")
-                img.src = movie.Poster
-
-
-                const title = clone.querySelector("h1")
-                title.textContent = movie.Title
-
-                // Movie length, rating, desc, etc...
-                fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&plot=short&apikey=4c61f6fa`)
-                    .then(response => response.json())
-                    .then(data => {
-                        //Movie rating
-                        let rating = clone.querySelector("#the-rating")
-                        rating.textContent = data.Ratings[0].Value
-
-                        //Movie Length
-                        let length = clone.querySelector("#length")
-                        length.textContent = data.Runtime
-
-                        let genre = clone.querySelector("#genre")
-                        genre.textContent = data.Genre
-
-                        let desc = clone.querySelector("#movie-desc")
-                        desc.textContent = data.Plot
-
-                        document.getElementById("template-container").appendChild(clone)
-                    })
+                    const img = clone.querySelector("img")
+                    img.src = movie.Poster
 
 
+                    const title = clone.querySelector("h1")
+                    title.textContent = movie.Title
 
-            
+                    // Movie length, rating, desc, etc...
+                    fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&plot=short&apikey=4c61f6fa`)
+                        .then(response => response.json())
+                        .then(data => {
+                            //Movie rating
+                            let rating = clone.querySelector("#the-rating")
+                            rating.textContent = data.Ratings[0].Value
 
+                            //Movie Length
+                            let length = clone.querySelector("#length")
+                            length.textContent = data.Runtime
 
+                            let genre = clone.querySelector("#genre")
+                            genre.textContent = data.Genre
 
+                            let desc = clone.querySelector("#movie-desc")
+                            desc.textContent = data.Plot
+
+                            document.getElementById("template-container").appendChild(clone)
+                        })
+                }
+                    
             }
         })
     searchBarWord = ""
