@@ -67,7 +67,9 @@ document.getElementById("search-button").addEventListener("click", ()=>{
                         let length = clone.querySelector("#length")
                         length.textContent = data.Runtime
 
-
+                        let genre = clone.querySelector("#genre")
+                        genre.textContent = data.Genre
+                        
                         document.getElementById("template-container").appendChild(clone)
                     })
 

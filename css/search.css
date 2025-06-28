@@ -174,15 +174,16 @@ body{
 }
 
 
-#poster{
+/* #poster{
     height: 100%;
     width: 30%
-}
+} */
 
 .poster{
     width: 30%;
     height: 20%;
     margin-left: 20px;
+    object-fit: cover;
 }
 
 #movie-info-container{
@@ -193,7 +194,6 @@ body{
 }
 
 .top-header > h1{
-    margin-left: 0.5rem;
     font-size: 1.125rem;
     font-family: Inter;
     margin-right: 0.5rem;
@@ -221,12 +221,46 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 29px;
 }
 
-#movie-specifics{
-    margin-left: 0.5rem
-}
-
-#movie-specifics > p{
+.top-header > #the-rating{
     font-size: 12px;
 }
+
+.movie-specifics{
+    display: flex;
+    align-items: center;
+    flex: None;
+    justify-content: flex-start
+}
+
+.movie-specifics > p, a{
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.movie-specifics > a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin-left: 3px;
+}
+
+.movie-specifics > #genre{
+    font-style: italic
+}
+
+
+#inner-container{
+    display: flex;
+}
+
+#info-container1{
+    display: block
+}
+
+#info-container1{
+    margin-left: 20px;
+}
+
