@@ -35,14 +35,21 @@
             for(let element of elements){
                 console.log(element)
                 element.textContent = "Remove"
-                let slicedNum = element.id.slice(-1)
-                console.log(slicedNum)
                 element.addEventListener("click", (event)=>{
-                    console.log(event)
-                    let container = document.getElementsByClassName(`movie-info-container${slicedNum}`)
-                    console.log(container)
-                    container[0].remove()
+                    let slicedNum = element.id.slice(-1)
+                    console.log(slicedNum)
+                    let container = document.querySelector(`.movie-info-container${slicedNum}`)
+                    const htmlToMatch = container.outerHTML
+                    const parser = new DOMParser
+                    const doc = parser.parseFromString(htmlToMatch, "text/html")
+                    const title = doc.querySelector("h1").textContent
+                    console.log(title)
+                    localStorage.removeItem(title)
+                    // console.log(htmlToMatch)
+                    // console.log(container)
+                    container.remove()
                 })
+        
             }
             
         </script>
