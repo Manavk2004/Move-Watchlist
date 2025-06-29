@@ -185,7 +185,7 @@ body{
     object-fit: cover;
 }
 
-#movie-info-container{
+[class*="movie-info-container"]{
     margin-bottom: 30px;
     display: flex;
     max-height: 250px;
@@ -198,7 +198,7 @@ body{
     margin-right: 0.5rem;
 }
 
-#movie-info-container > svg{
+[class*="movie-info-container"] > svg{
     margin-left: 0.625rem;
     margin-top: 1.25rem;
 }

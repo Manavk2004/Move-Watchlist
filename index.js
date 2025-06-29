@@ -25,7 +25,7 @@ document.getElementById("search-bar").addEventListener("keydown", (event)=>{
 //--------------------------------------------------------------------------------//
 
 //Search and get information
-
+let state = true
 let count = 0
 let movieCount = 0
 document.getElementById("search-button").addEventListener("click", ()=>{
@@ -47,7 +47,7 @@ document.getElementById("search-button").addEventListener("click", ()=>{
             let arrayofMovies = data.Search
             for (const movie of arrayofMovies){
                 // console.log(movie)
-                if (movie.Poster !== "N/A"){
+                if (movie.Poster !== "N/A" && movie.Type === "movie"){
                     const template = document.getElementById("template")
                     const clone = template.content.cloneNode(true)
 
@@ -55,7 +55,7 @@ document.getElementById("search-button").addEventListener("click", ()=>{
                     img.src = movie.Poster
 
                     clone.querySelector(".watchlist-button").id = `watchlist-button-${movieCount}`
-                    clone.querySelector("#movie-info-container").className = `movie-info-container${movieCount}`
+                    clone.querySelector(".movie-info-container").className = `movie-info-container${movieCount}`
                     movieCount += 1
 
                     const title = clone.querySelector("h1")
@@ -84,34 +84,47 @@ document.getElementById("search-button").addEventListener("click", ()=>{
                             desc.textContent = data.Plot
 
                             document.getElementById("template-container").appendChild(clone)
-
-                            let buttons = document.getElementsByClassName("watchlist-button")
-                            if(buttons.length === 10){
-                                Array.from(buttons).forEach(button => console.log(button.id.split("-").pop()))
-                                document.querySelectorAll(".watchlist-button").forEach(button=> {
+                            document.querySelectorAll(".watchlist-button").forEach(button=> {
                                     button.addEventListener("click", (event)=>{
-                                        let button = event.currentTarget
-                                        console.log(button)
+                                        if(state){
+                                            let button = event.currentTarget
+                                            let number = button.id.split("-").pop()
+                                            containerCall(number)
+                                            state = false
+                                            console.log(state)
+
+                                            setTimeout(()=>{
+                                                state = true
+                                                console.log(state)
+                                            }, 100)
+                                            
+                                        }
+                                        
                                     })
-                                })
+                                
+                            })
+                            
+                            state = true
+                            
+
+                            function containerCall(containerNumber){
+                                let container = document.querySelector(`.movie-info-container${containerNumber}`)
+                                console.log(container)
+
                             }
                         })
                 }
-                    
+     
             }
 
         })
 
-    // Grabbing html collection from button classList
+        searchBarWord = ""
+        document.getElementById("search-bar").value = ""
+
+    })
 
 
-    //
-    
-    
-    searchBarWord = ""
-    document.getElementById("search-bar").value = ""
-
-})
 
 ///WHAT WE NEED TO DO IS TO MAKE AN ONCLICK FUNCTION FOR THE WATCHLIST BUTTONS THAT IS GONG TO CHECK THE ID OF THE BUTTON. MORE SPECIFICALLY
 //THE NUMBER AND COMPARE IT TO THE DIV CONTAINER NUMBER. IF IT MATCHES, THEN WE PUT THAT DIV CONTAINER INTO THE
