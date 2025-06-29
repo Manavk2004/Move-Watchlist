@@ -31,8 +31,10 @@
                 let div = localStorage.getItem(key)
                 document.getElementById("template-container1").innerHTML += div
             }
-            // movie.getElementsByClassName("watchlist-button")[0].textContent = "Remove"
-            // document.getElementById("template-container1").innerHTML = movie
+            elements = document.getElementsByClassName("watchlist-button")
+            for(let element of elements){
+                element.textContent = "Remove"
+            }
         </script>
         <script src="index.js"></script>
     </body>
