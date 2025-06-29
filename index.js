@@ -106,10 +106,16 @@ document.getElementById("search-button").addEventListener("click", ()=>{
                             
                             state = true
                             
-
+                            
                             function containerCall(containerNumber){
                                 let container = document.querySelector(`.movie-info-container${containerNumber}`)
                                 console.log(container)
+                                let title = container.querySelector("h1").textContent
+                                console.log(title)
+                                const divContainer = container.outerHTML
+                                localStorage.setItem(title, divContainer)
+                                console.log("Local Storage updated")
+                                
 
                             }
                         })

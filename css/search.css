@@ -164,11 +164,11 @@ body{
     grid-column: span 2;
 }
 
-#template-container{
+#template-container, #template-container1{
     width: 100%;
 }
 
-#template-container > div{
+#template-container, #template-container1 > div{
     color: white;
 }
 
@@ -277,3 +277,14 @@ body{
     margin-right: 10px
 }
 
+
+
+
+
+/* Watchlist CSS */
+
+#body-of-page1{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
